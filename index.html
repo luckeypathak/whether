@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Weather Forecast App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="weather-container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🌤️ WeatherNow</h1>
+            <p>Your Daily Weather Companion</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search for a city..." 
+                    class="search-input"
+                >
+                <button class="search-btn" onclick="searchWeather()">Search</button>
+                <!-- <button class="location-btn" onclick="getLocationWeather()" title="Get your current location">📍</button>-->
+             </div> 
+            <div class="suggestions" id="suggestions"></div> 
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+        <!-- Current Weather Section -->
+        <section class="current-weather" id="currentWeather" style="display: none;">
+            <div class="location-info">
+                <h2 id="cityName"></h2>
+                <p id="weatherDate"></p>
+            </div>
+
+            <div class="weather-main">
+                <div class="temperature-section">
+                    <span id="weatherIcon" class="weather-icon"></span>
+                    <div class="temperature-display">
+                        <span id="temperature" class="temperature"></span>
+                        <span class="temp-unit">°C</span>
+                    </div>
+                </div>
+                <div class="weather-description">
+                    <p id="weatherDesc" class="description"></p>
+                    <p id="feelsLike" class="feels-like"></p>
+                </div>
+            </div>
+
+            <!-- Weather Details Grid -->
+            <div class="weather-details">
+                <div class="detail-card">
+                    <span class="detail-icon">💧</span>
+                    <span class="detail-label">Humidity</span>
+                    <span class="detail-value" id="humidity"></span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-icon">💨</span>
+                    <span class="detail-label">Wind Speed</span>
+                    <span class="detail-value" id="windSpeed"></span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-icon">🌡️</span>
+                    <span class="detail-label">Pressure</span>
+                    <span class="detail-value" id="pressure"></span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-icon">👁️</span>
+                    <span class="detail-label">Visibility</span>
+                    <span class="detail-value" id="visibility"></span> 
+                 </div>
+                <div class="detail-card">
+                    <span class="detail-icon">📈</span>
+                    <span class="detail-label">Max Temp</span>
+                    <span class="detail-value" id="maxTemp"></span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-icon">📉</span>
+                    <span class="detail-label">Min Temp</span>
+                    <span class="detail-value" id="minTemp"></span> 
+                </div>
+            </div>
+        </section>
+
+        <!-- Hourly Forecast Section -->
+        <section class="forecast-section" id="forecastSection" style="display: none;">
+            <h3>Hourly Forecast</h3>
+            <div class="hourly-forecast" id="hourlyForecast"></div>
+        </section>
+
+        <!-- Weekly Forecast Section -->
+        <section class="forecast-section" id="weeklySection" style="display: none;">
+            <h3>7-Day Forecast</h3>
+            <div class="weekly-forecast" id="weeklyForecast"></div>
+        </section>
+
+        <!-- Welcome Message -->
+        <div class="welcome-message" id="welcomeMessage">
+            <h2>Welcome to WeatherNow</h2>
+            <p>Search for a city or use your current location to check the weather</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
